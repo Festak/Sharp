@@ -19,13 +19,10 @@ namespace CarShop.Controllers
 
         public ActionResult Index(int? page)
         {
-            //   var books = from b in db.Books
-            //              select b;
+     
               var genres = from g in db.Genres
                          select g;
-            List<object> myModel = new List<object>();
-            myModel.Add(db.Books.ToList());
-            myModel.Add(db.Genres.ToList());
+        
             ViewBag.Genres = genres;
             return View(db.Books);
         }
