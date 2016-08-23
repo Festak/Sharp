@@ -16,8 +16,8 @@
     @foreach (var b in Model) {
     <tr>
         <td>@b.BookName</td>
-        <td>@b.GenreId</td>
-        <td>@b.PriceId</td>
+        <td>@b.Genre.GenreName</td>
+        <td>@b.Price.PriceName</td>
         <td>@b.Description</td>
         <td><a href="/Home/EditBook/@b.BookId">Редактировать</a></td>
         <td><a href="/Home/Delete/@b.BookId">Удалить</a></td>

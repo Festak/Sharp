@@ -42,9 +42,10 @@
                 </ul>
 
                 @Html.Partial("_LoginPartial")
-               
+                @if (this.User.IsInRole("admin"))
+                {
                 @Html.Partial("_AdminPartial")
-                
+                }
 
 
             </div>

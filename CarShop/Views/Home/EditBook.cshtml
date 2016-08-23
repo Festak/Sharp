@@ -14,15 +14,15 @@
             @Html.EditorFor(m => m.BookName)
         </p>
         <p>
-            @Html.LabelFor(m => m.GenreId, "id genre")
+            @Html.LabelFor(m => m.Genre.GenreId, "Жанр")
             <br />
-            @Html.EditorFor(m => m.GenreId)
+          @Html.DropDownList("GenreId", (IEnumerable<SelectListItem>)ViewBag.Genres, "Select ...")
         </p>
 
         <p>
-            @Html.LabelFor(m => m.PriceId, "id price")
+            @Html.LabelFor(m => m.Price.PriceId, "Цена")
             <br />
-            @Html.EditorFor(m => m.PriceId)
+            @Html.DropDownList("PriceId", (IEnumerable<SelectListItem>)ViewBag.Prices, "Select ...")
         </p>
         <p>
             @Html.LabelFor(m=>m.Description, "Описание книги")

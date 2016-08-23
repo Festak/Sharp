@@ -13,7 +13,7 @@ namespace CarShop.Controllers
     {
         ApplicationDbContext context = new ApplicationDbContext();
         
-    
+        [Authorize(Roles ="admin")]
         public ActionResult Index()
         {
             return View(context.Roles.ToList());
@@ -27,7 +27,7 @@ namespace CarShop.Controllers
 
         //
         // POST: /Roles/Create
-      
+        [Authorize(Roles = "admin")]
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
@@ -48,7 +48,7 @@ namespace CarShop.Controllers
         }
         //
         // GET: /Roles/Edit/5
-      
+        [Authorize(Roles = "admin")]
         public ActionResult Edit(string roleName)
         {
             var thisRole = context.Roles.Where(r => r.Name.Equals(roleName, StringComparison.CurrentCultureIgnoreCase)).FirstOrDefault();
@@ -60,7 +60,7 @@ namespace CarShop.Controllers
         // POST: /Roles/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-       
+        [Authorize(Roles = "admin")]
         public ActionResult Edit(Microsoft.AspNet.Identity.EntityFramework.IdentityRole role)
         {
             try
@@ -78,7 +78,7 @@ namespace CarShop.Controllers
 
         //
         // GET: /Roles/Delete/5
-        
+        [Authorize(Roles = "admin")]
         public ActionResult Delete(string RoleName)
         {
             
@@ -93,14 +93,14 @@ namespace CarShop.Controllers
         }
 
 
-     
+        [Authorize(Roles = "admin")]
         public ActionResult ManageUserRoles()
         {
             var list = context.Roles.OrderBy(r => r.Name).ToList().Select(rr => new SelectListItem { Value = rr.Name.ToString(), Text = rr.Name }).ToList();
             ViewBag.Roles = list;
             return View();
         }
-       
+        [Authorize(Roles = "admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult RoleAddToUser(string UserName, string RoleName)
@@ -119,7 +119,7 @@ namespace CarShop.Controllers
 
             return View("ManageUserRoles");
         }
-     
+        [Authorize(Roles = "admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult GetRoles(string UserName)
@@ -138,7 +138,7 @@ namespace CarShop.Controllers
 
             return View("ManageUserRoles");
         }
-       
+        [Authorize(Roles = "admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteRoleForUser(string UserName, string RoleName)

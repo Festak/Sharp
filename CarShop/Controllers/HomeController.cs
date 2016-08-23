@@ -74,8 +74,13 @@ namespace CarShop.Controllers
         {
             if (id == null)
             { return HttpNotFound(); }
+            var genres = db.Genres.OrderBy(r => r.GenreName).ToList().Select(rr => new SelectListItem { Value = rr.GenreName.ToString(), Text = rr.GenreName }).ToList();
+            var prices = db.Prices.ToList().Select(rr => new SelectListItem { Value = rr.PriceName.ToString(), Text = rr.PriceName }).ToList();
+            ViewBag.Genres = genres;
+            ViewBag.Prices = prices;
             Book book = db.Books.Find(id);
             if (book != null) { return View(book); }
+          
             return HttpNotFound();
         }
         [HttpPost]
@@ -83,6 +88,7 @@ namespace CarShop.Controllers
         public ActionResult EditBook(Book book)
         {
             db.Entry(book).State = EntityState.Modified;
+           
             db.SaveChanges();
             return RedirectToAction("ShowList");
         }
