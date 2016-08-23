@@ -1,0 +1,27 @@
+﻿@model IEnumerable<CarShop.Models.Book>
+
+@{
+    ViewBag.Title = "Edit Admin Panel";
+}
+
+<table class="table table-hover">
+    <tr style="font-style: oblique; background-color: beige">
+        <td>Название</td>
+        <td>id genre</td>
+        <td>Id price</td>
+        <td>Описание</td>
+        <td>Редактирование</td>
+        <td>Удаление</td>
+    </tr>
+    @foreach (var b in Model) {
+    <tr>
+        <td>@b.BookName</td>
+        <td>@b.GenreId</td>
+        <td>@b.PriceId</td>
+        <td>@b.Description</td>
+        <td><a href="/Home/EditBook/@b.BookId">Редактировать</a></td>
+        <td><a href="/Home/Delete/@b.BookId">Удалить</a></td>
+    </tr>
+    }
+
+</table>

@@ -1,0 +1,29 @@
+﻿@model IEnumerable<CarShop.Models.Book>
+@{
+    ViewBag.Title = "Books Confirming";
+}
+
+
+<div style="width: 1500px;">
+    <h2>Список всех неподтвержденных книг: </h2>
+    <table cellpadding="30" style="font-size: 12px;">
+
+        @foreach (var b in Model)
+        {
+            if (!b.IsAccepted)
+            {
+                <tr>
+                    <td style="width:250px;height: 100px;">
+                        <p style="color:#378de5 ;font-weight: bold; font-size: 15px;"> @b.BookName</p>
+                   
+                        <br><strong>Количество книг </strong> @b.Count
+                        <p style="margin:10px;"> <a href="/Home/BookConfirmed/@b.BookId">Подтвердить</a></p>
+                    </td>
+                    <td style="width:150px;height: 100px; background-color: lightcoral">
+                        картинка
+                    </td>
+                </tr>
+            }
+        }
+    </table>
+</div>

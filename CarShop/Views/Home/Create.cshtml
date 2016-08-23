@@ -1,0 +1,34 @@
+﻿
+@model CarShop.Models.Book
+@{ 
+    ViewBag.Title = "Добавление книги";
+}
+<h2>Новая книга</h2>
+@using (Html.BeginForm())
+{
+  
+    @Html.LabelFor(model => model.BookName, "Название книги")
+    <br />
+    @Html.EditorFor(model => model.BookName)
+    @Html.ValidationMessageFor(model => model.BookName)
+
+
+    <br /><br />
+    @Html.LabelFor(model => model.PriceId, "Ид цены")
+    <br />
+    @Html.EditorFor(model => model.PriceId)
+    @Html.ValidationMessageFor(model => model.PriceId)
+    <br /><br />
+    @Html.LabelFor(model => model.GenreId, "Ид Жанра")
+    <br />
+    @Html.EditorFor(model => model.GenreId)
+    @Html.ValidationMessageFor(model => model.GenreId)
+
+
+    <br /><br />
+    @Html.LabelFor(model=>model.Description, "Описание книги")
+    <br />
+    @Html.TextBoxFor(model=>model.Description)
+<br />
+    <input type="submit" value="Добавить"/>
+}

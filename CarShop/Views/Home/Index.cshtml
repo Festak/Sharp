@@ -1,0 +1,38 @@
+﻿@model IEnumerable<CarShop.Models.Book>
+@{
+  
+    ViewBag.Title = "Home Page";
+    
+}
+<div class="sidebar1">
+    <h4>Жанры:</h4>
+    <ul class="nava">
+
+        @foreach (var g in ViewBag.Genres)
+        {
+            <li><a href="#">@g.GenreName</a></li>
+        }
+    </ul>
+</div>
+<div style="width: 1500px;">
+    <h2>Список всех книг: </h2>
+    <table cellpadding="30" style="font-size: 12px;">
+        @foreach (var b in Model)
+        {
+            if (b.IsAccepted)
+            {
+                <tr>
+                    <td style="width:250px;height: 100px;">
+                        <p style="color:#378de5 ;font-weight: bold; font-size: 15px;"> @b.BookName</p>
+
+                        <br><strong>Количество книг: </strong> @b.Count
+                        <p style="margin:10px;"> <a href="/Home/BookConfirmed/@b.BookId">Подтвердить</a></p>
+                    </td>
+                    <td style="width:150px;height: 100px; background-color: lightcoral">
+                        картинка
+                    </td>
+                </tr>
+            }
+        }
+    </table>
+</div>

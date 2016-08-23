@@ -1,0 +1,39 @@
+﻿@{
+    ViewBag.Title = "Редактировать книгу";
+}
+@model CarShop.Models.Book
+
+
+@using (Html.BeginForm("EditBook", "Home", FormMethod.Post))
+{
+    <fieldset>
+        @Html.HiddenFor(m => m.BookId)
+        <p>
+            @Html.LabelFor(m => m.BookName, "Название книги")
+            <br />
+            @Html.EditorFor(m => m.BookName)
+        </p>
+        <p>
+            @Html.LabelFor(m => m.GenreId, "id genre")
+            <br />
+            @Html.EditorFor(m => m.GenreId)
+        </p>
+
+        <p>
+            @Html.LabelFor(m => m.PriceId, "id price")
+            <br />
+            @Html.EditorFor(m => m.PriceId)
+        </p>
+        <p>
+            @Html.LabelFor(m=>m.Description, "Описание книги")
+            <br/>
+            @Html.TextBoxFor(m=>m.Description)
+
+        </p>
+        <p><input type="submit" value="Отправить" /></p>
+
+    </fieldset>
+
+
+
+}
