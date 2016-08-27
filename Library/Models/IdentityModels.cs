@@ -3,6 +3,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System.Collections.Generic;
 
 namespace Library.Models
 {
@@ -16,6 +17,16 @@ namespace Library.Models
             // Add custom user claims here
             return userIdentity;
         }
+
+
+       // public virtual ICollection<Offer> Offers { get; set; }
+      //  public virtual ICollection<Like> Likes { get; set; }
+     // public virtual int? NumberLikes { get; set; }
+      //  public virtual ICollection<Dislike> Dislikes { get; set; }
+     //   public virtual int? NumberDislikes { get; set; }
+
+
+
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
@@ -24,6 +35,16 @@ namespace Library.Models
             : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
+
+  //   public DbSet<ApplicationUser> UserProfiles { get; set; }
+        public DbSet<Book> Books { get; set; }
+        public DbSet<Genre> Genres { get; set; }
+        public DbSet<Author> Authors { get; set; }
+      //  public DbSet<Comment> Comments { get; set; }
+      //  public DbSet<Dislike> Dislikes { get; set; }
+      // public DbSet<Like> Likes { get; set; }
+        public DbSet<Tag> Tags { get; set; }
+        public DbSet<Offer> Offers { get; set; }
 
         public static ApplicationDbContext Create()
         {
