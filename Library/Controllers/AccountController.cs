@@ -13,6 +13,7 @@ using Library.Models;
 namespace Library.Controllers
 {
 // another one soooo
+/// lol
     [Authorize]
     public class AccountController : Controller
     {
