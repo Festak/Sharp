@@ -14,8 +14,8 @@ namespace Library.Controllers
 
         public ActionResult Index()
         {
-            
-            return View(db.Offers);
+            var offers = db.Offers.Where(o=>o.IsAccepted==true).ToList();
+            return View(offers);
         }
 
         public ActionResult About()
@@ -31,5 +31,24 @@ namespace Library.Controllers
 
             return View();
         }
+        [HttpGet]
+        public ActionResult MakeOffer()
+        {
+        //    SelectList genres = new SelectList(db.Genres,"Id", "Name");
+        //    ViewBag.Genres = genres;
+            return View();
+        }
+        [HttpPost]
+        public ActionResult MakeOffer(Book book)
+        {
+            Genre genre = db.Genres.First();
+            book.Genre = genre;
+            db.Books.Add(book);
+            db.SaveChanges();
+            return Redirect("Index");
+        }
+
+
+
     }
 }

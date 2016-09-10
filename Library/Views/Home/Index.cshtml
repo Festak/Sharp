@@ -1,23 +1,39 @@
 ﻿@model IEnumerable<Library.Models.Offer>
 @{
     ViewBag.Title = "Home Page";
+    int i = 0;
 }
 <table border="1">
+    @foreach (var offer in Model)
+    {
+      
+            ++i;
     <tr>
-        <td>
-            @foreach (var offer in Model)
+        <td style="width: 500px;">
+            <p>Предложение номер: @i</p>
+            <p style="font-size: 20px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">@offer.Title</p>
+            <br />
+            <b>Название книги: </b>@offer.Book.Name<br />
+           <b>Авторы книги: @foreach (var author in offer.Book.Authors)
+           { <span>@author.Name</span> }</b>
+            <b>Все теги: </b>@foreach (var b in offer.Tags)
             {
-                if (offer != null)
-                { // а offer.Book.Name не работает и кидает эксепшен какой-то. Не null
-                    <b>@offer.Title</b>
-              
-                }
-                else
-                {
-                    <b>Нет жанров</b>
-                }
+                <span>@b.Value</span><span>;</span>
             }
+            
+            @if (offer.Rating != null)
+            {
+            <label>@offer.Rating</label>
+            }
+            else {
+                <label>Рейтинг не определен</label>
+            }
+
+
         </td>
+        <td>Описание книги: <b style="float: right;">@offer.Book.Description</b><br /></td>
     </tr>
+        
+    }
 </table>
 

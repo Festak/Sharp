@@ -13,12 +13,10 @@ namespace Library.Models
         public int Id { get; set; }
 
         public virtual string Title { get; set; }
-      //  public virtual ApplicationUser User { get; set; }
-       // public virtual ICollection<Comment> Comments { get; set; }
         public virtual ICollection<Tag> Tags { get; set; }
         public virtual Book Book { get; set; }
         public virtual double? Rating { get; set; }
-        public virtual bool? IsAccepted { get; set; }
+        public virtual bool IsAccepted { get; set; }
 
     }
 }

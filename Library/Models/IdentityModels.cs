@@ -19,13 +19,6 @@ namespace Library.Models
         }
 
 
-       // public virtual ICollection<Offer> Offers { get; set; }
-      //  public virtual ICollection<Like> Likes { get; set; }
-     // public virtual int? NumberLikes { get; set; }
-      //  public virtual ICollection<Dislike> Dislikes { get; set; }
-     //   public virtual int? NumberDislikes { get; set; }
-
-
 
     }
 
@@ -36,13 +29,10 @@ namespace Library.Models
         {
         }
 
-  //   public DbSet<ApplicationUser> UserProfiles { get; set; }
+ 
         public DbSet<Book> Books { get; set; }
         public DbSet<Genre> Genres { get; set; }
         public DbSet<Author> Authors { get; set; }
-      //  public DbSet<Comment> Comments { get; set; }
-      //  public DbSet<Dislike> Dislikes { get; set; }
-      // public DbSet<Like> Likes { get; set; }
         public DbSet<Tag> Tags { get; set; }
         public DbSet<Offer> Offers { get; set; }
 

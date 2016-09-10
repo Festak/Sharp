@@ -1,0 +1,26 @@
+﻿@model Library.Models.Book
+@{
+    ViewBag.Title = "MakeOffer";
+}
+
+<h2>MakeOffer</h2>
+
+@using (Html.BeginForm())
+{ 
+    @Html.LabelFor(model => model.Name, "Название книги: ")
+    <br />
+    @Html.EditorFor(model => model.Name)
+    @Html.ValidationMessageFor(model => model.Name)
+    <br/>
+    @Html.LabelFor(model => model.Description, "Описание книги ")
+    <br />
+    @Html.EditorFor(model => model.Description)
+    @Html.ValidationMessageFor(model => model.Description)
+    <br/>
+ //   <b>Жанр</b>
+ //   <br />
+ // @Html.DropDownListFor(model => model.Genre, ViewBag.Genres as SelectList)
+ //   <br />
+
+    <input type="submit" value="Добавить" />
+}

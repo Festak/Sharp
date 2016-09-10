@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Library.Models.Offer>
+@{
+    ViewBag.Title = "BookConfirm";
+}
+
+<h2>BookConfirm</h2>
+<table border="1">
+    @foreach (var offer in Model)
+    {
+        <tr>
+            <td>
+                <b>Название книги: </b>@offer.Book.Name<br />
+                <b>
+                    Авторы книги: @foreach (var author in offer.Book.Authors)
+                { <span>@author.Name</span> }
+                </b>
+                <b>Все теги: </b>@foreach (var b in offer.Tags)
+                {
+                    <span>@b.Value</span><span>,</span>
+                }
+
+
+            </td>
+            <td>
+                <p style="margin:10px;"> <a href="/Admin/BookConfirmed/@offer.Id">Подтвердить</a></p>
+            </td>
+        </tr>
+    }
+   
+</table>
